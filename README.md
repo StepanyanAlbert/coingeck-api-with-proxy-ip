@@ -1,12 +1,12 @@
 # coingecko-api-with-proxy-ip
 
-[![CI](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![codecov](https://codecov.io/gh/samuraitruong/coingecko-api-v3/branch/main/graph/badge.svg?token=A7P9GCFGN2)](https://codecov.io/gh/samuraitruong/coingecko-api-v3) [![version](https://badgen.net/npm/v/coingecko-api-v3)](https://badgen.net/npm/v/coingecko-api-v3)
+[![CI](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![codecov](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![version](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ipg)
 
 The nodejs api library for accessing coingecko api v3 , develop with typescript with zero dependencies
 
 - [Official document here](https://www.coingecko.com/api/documentations/v3)
 
-- [API document generated](https://samuraitruong.github.io/coingecko-api-v3/classes/coingeckoclient.coingeckoclient-1.html)
+- [API document generated](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)
 
 
 ## Get started
