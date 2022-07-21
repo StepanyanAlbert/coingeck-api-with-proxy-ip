@@ -1,6 +1,6 @@
-# coingecko-api-v3/localAddress
+# coingecko-api-with-proxy-ip
 
-[![CI](https://github.com/samuraitruong/coingecko-api-v3/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/samuraitruong/coingecko-api-v3/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/samuraitruong/coingecko-api-v3/branch/main/graph/badge.svg?token=A7P9GCFGN2)](https://codecov.io/gh/samuraitruong/coingecko-api-v3) [![version](https://badgen.net/npm/v/coingecko-api-v3)](https://badgen.net/npm/v/coingecko-api-v3)
+[![CI](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![codecov](https://codecov.io/gh/samuraitruong/coingecko-api-v3/branch/main/graph/badge.svg?token=A7P9GCFGN2)](https://codecov.io/gh/samuraitruong/coingecko-api-v3) [![version](https://badgen.net/npm/v/coingecko-api-v3)](https://badgen.net/npm/v/coingecko-api-v3)
 
 The nodejs api library for accessing coingecko api v3 , develop with typescript with zero dependencies
 
@@ -12,16 +12,16 @@ The nodejs api library for accessing coingecko api v3 , develop with typescript 
 ## Get started
 
 ```
-npm install coingeck-api-with-proxy-ip
+npm install coingecko-api-with-proxy-ip
 
 ```
 
 ```js
-import { CoinGeckoClient } from 'coingeck-api-with-proxy-ip';
+import { CoinGeckoClient } from 'coingecko-api-with-proxy-ip';
 const client = new CoinGeckoClient({
   timeout: 10000,
   autoRetry: true,
-  localAddress:''
+  localAddress:'37.186.114.54'
 });
 const trendingSearch = await client.trending();
 ```

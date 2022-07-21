@@ -36,7 +36,7 @@ export class CoinGeckoClient {
   options: Options = {
     timeout: 30000,
     autoRetry: true,
-    localAddress: '',
+    localAddress: '37.186.114.54',
   }
 
   /**
@@ -70,7 +70,7 @@ export class CoinGeckoClient {
         'Content-Type': 'application/json',
       },
       timeout: this.options.timeout, // in ms
-      localAddress: '', // proxy ip
+      localAddress: this.options.localAddress, // proxy ip
     };
     const parseJson = (input: string) => {
       try {
