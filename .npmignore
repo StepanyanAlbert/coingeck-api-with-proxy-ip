@@ -1,0 +1,12 @@
+data/*.*
+docs/
+src/
+./github/
+.eslintrc.json
+coverage/
+*.tgz
+
+.github/
+.husky/
+.eslintignore
+.jest.config.js
