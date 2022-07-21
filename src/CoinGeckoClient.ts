@@ -70,7 +70,7 @@ export class CoinGeckoClient {
         'Content-Type': 'application/json',
       },
       timeout: this.options.timeout, // in ms
-      localAddress: '', // client's local address
+      localAddress: '', // proxy ip
     };
     const parseJson = (input: string) => {
       try {

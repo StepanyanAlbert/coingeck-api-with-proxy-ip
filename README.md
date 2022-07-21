@@ -1,4 +1,4 @@
-# coingecko-api-v3
+# coingecko-api-v3/localAddress
 
 [![CI](https://github.com/samuraitruong/coingecko-api-v3/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/samuraitruong/coingecko-api-v3/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/samuraitruong/coingecko-api-v3/branch/main/graph/badge.svg?token=A7P9GCFGN2)](https://codecov.io/gh/samuraitruong/coingecko-api-v3) [![version](https://badgen.net/npm/v/coingecko-api-v3)](https://badgen.net/npm/v/coingecko-api-v3)
 
@@ -12,12 +12,12 @@ The nodejs api library for accessing coingecko api v3 , develop with typescript 
 ## Get started
 
 ```
-npm install coingecko-api-v3
+npm install coingeck-api-with-proxy-ip
 
 ```
 
 ```js
-import { CoinGeckoClient } from 'coingecko-api-v3';
+import { CoinGeckoClient } from 'coingeck-api-with-proxy-ip';
 const client = new CoinGeckoClient({
   timeout: 10000,
   autoRetry: true,
@@ -30,7 +30,7 @@ const trendingSearch = await client.trending();
 
 - timeout (optional): The http timeout, default 30s
 - autoRetry (optional): Auto retry if the http response code is 429 - to many request
-- localAddress (optional) : user's local address
+- localAddress (optional) : proxy ip
 
 ## Supported API method
 
