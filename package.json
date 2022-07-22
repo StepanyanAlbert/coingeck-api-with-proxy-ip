@@ -1,5 +1,5 @@
 {
-  "name": "coingecko-api-with-proxy-ip",
+  "name": "coingeck-api-with-proxy-ip",
   "version": "0.0.13",
   "description": "The nodejs api library for accessing coingecko api v3 , develop with typescript",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samuraitruong/coingecko-api-v3.git"
+    "url": "https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip"
   },
   "keywords": [
     "coingecko",
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/samuraitruong/coingecko-api-v3/issues"
   },
-  "homepage": "https://samuraitruong.github.io/coingecko-api-v3",
+  "homepage": "https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip",
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",

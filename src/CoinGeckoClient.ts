@@ -33,10 +33,12 @@ import {
 export class CoinGeckoClient {
   apiV3Url = 'https://api.coingecko.com/api/v3'
 
+  currentLocalAddress = 0
+
   options: Options = {
     timeout: 30000,
     autoRetry: true,
-    localAddress: '37.186.114.54',
+    localAddresses: ['37.186.114.54'],
   }
 
   /**
@@ -62,6 +64,7 @@ export class CoinGeckoClient {
    */
   private async httpGet<T>(url: string) {
     const { host, pathname, search } = new URL(url);
+
     const options = {
       host,
       path: pathname + search,
@@ -70,7 +73,7 @@ export class CoinGeckoClient {
         'Content-Type': 'application/json',
       },
       timeout: this.options.timeout, // in ms
-      localAddress: this.options.localAddress, // proxy ip
+      localAddress: this.options?.localAddresses[this.currentLocalAddress], // proxy ip
     };
     const parseJson = (input: string) => {
       try {
@@ -101,6 +104,11 @@ export class CoinGeckoClient {
             headers: res.headers as any,
           });
         });
+        if (this.options?.localAddresses?.length - 1 > this.currentLocalAddress) {
+          this.currentLocalAddress += 1;
+        } else {
+          this.currentLocalAddress = 0;
+        }
       });
 
       req.on('error', (err) => {

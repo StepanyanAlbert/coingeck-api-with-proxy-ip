@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![codecov](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![version](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ipg)
 
-The nodejs api library for accessing coingecko api v3 , develop with typescript with zero dependencies
+The nodejs api library for accessing coingecko api v3 with proxy-ip , develop with typescript with zero dependencies
 
 - [Official document here](https://www.coingecko.com/api/documentations/v3)
 
@@ -21,7 +21,7 @@ import { CoinGeckoClient } from 'coingecko-api-with-proxy-ip';
 const client = new CoinGeckoClient({
   timeout: 10000,
   autoRetry: true,
-  localAddress:'37.186.114.54'
+  localAddress:[ '37.186.114.54' ]
 });
 const trendingSearch = await client.trending();
 ```
