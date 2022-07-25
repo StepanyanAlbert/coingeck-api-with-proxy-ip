@@ -38,7 +38,7 @@ export class CoinGeckoClient {
   options: Options = {
     timeout: 30000,
     autoRetry: true,
-    localAddresses: ['37.186.114.54'],
+    localAddresses: [],
   }
 
   /**
