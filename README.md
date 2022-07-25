@@ -1,4 +1,4 @@
-# coingecko-api-with-localaddresses
+# coingecko-api-with-proxy-ip
 
 [![CI](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![codecov](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip) [![version](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ip)](https://github.com/StepanyanAlbert/coingeck-api-with-proxy-ipg)
 
@@ -12,12 +12,12 @@ The nodejs api library for accessing coingecko api v3 with proxy-ip , develop wi
 ## Get started
 
 ```
-npm install coingecko-api-with-localaddresses
+npm install coingecko-api-with-proxy-ip
 
 ```
 
 ```js
-import { CoinGeckoClient } from 'coingecko-api-with-localaddresses';
+import { CoinGeckoClient } from 'coingecko-api-with-proxy-ip';
 const client = new CoinGeckoClient({
   timeout: 10000,
   autoRetry: true,
