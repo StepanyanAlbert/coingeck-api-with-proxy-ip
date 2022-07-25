@@ -43,7 +43,7 @@ export class CoinGeckoClient {
 
   /**
    * Constructor
-   * @param options the options passed for client library, at the moment only timeout and localAddress are support
+   * @param options the options passed for client library, at the moment only timeout and localAddress are supported
    */
   constructor(options?: Options) {
     this.options = { ...this.options, ...options };
@@ -75,6 +75,7 @@ export class CoinGeckoClient {
       timeout: this.options.timeout, // in ms
       localAddress: this.options?.localAddresses[this.currentLocalAddress], // proxy ip
     };
+    console.log(this.options?.localAddresses[this.currentLocalAddress]);
     const parseJson = (input: string) => {
       try {
         return JSON.parse(input);
