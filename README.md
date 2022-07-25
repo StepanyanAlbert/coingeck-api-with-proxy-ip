@@ -21,7 +21,7 @@ import { CoinGeckoClient } from 'coingecko-api-with-localaddresses';
 const client = new CoinGeckoClient({
   timeout: 10000,
   autoRetry: true,
-  localAddress:[ '37.186.114.54' ]
+  localAddresses:[ '37.186.114.54' ]
 });
 const trendingSearch = await client.trending();
 ```
@@ -30,7 +30,7 @@ const trendingSearch = await client.trending();
 
 - timeout (optional): The http timeout, default 30s
 - autoRetry (optional): Auto retry if the http response code is 429 - to many request
-- localAddress (optional) : proxy ip
+- localAddress (optional) :Array of proxy ips
 
 ## Supported API method
 
