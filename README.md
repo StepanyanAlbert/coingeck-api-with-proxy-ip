@@ -21,7 +21,7 @@ import { CoinGeckoClient } from 'coingecko-api-with-proxy-ip';
 const client = new CoinGeckoClient({
   timeout: 10000,
   autoRetry: true,
-  localAddresses:[ '37.186.114.54' ]
+  localAddresses:[ ]
 });
 const trendingSearch = await client.trending();
 ```

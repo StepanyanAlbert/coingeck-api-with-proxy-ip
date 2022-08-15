@@ -1,6 +1,6 @@
 {
   "name": "coingecko-api-with-proxy-ip",
-  "version": "0.1.13",
+  "version": "0.2.13",
   "description": "The nodejs api library for accessing coingecko api v3 , develop with typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,7 +34,7 @@
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.11.45",
+    "@types/node": "^16.11.46",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "eslint": "^7.32.0",
