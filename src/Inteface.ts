@@ -520,7 +520,7 @@ export type GlobalDefiResponse = ResponseWithData<GlobalDefiData>;
 export interface Options {
   timeout?: number,
   autoRetry?: boolean,
-  localAddresses?: string[]
+  localAddresses: string[]
 }
 
 export interface HttpResponse<T> {

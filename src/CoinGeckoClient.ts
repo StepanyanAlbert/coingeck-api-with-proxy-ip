@@ -75,7 +75,7 @@ export class CoinGeckoClient {
         'Content-Type': 'application/json',
       },
       timeout: this.options.timeout, // in ms
-      localAddress: this.options.localAddresses ? this.options?.localAddresses[this.currentLocalAddress] : '',
+      localAddress: this.options?.localAddresses[this.currentLocalAddress],
     };
     const parseJson = (input: string) => {
       try {
