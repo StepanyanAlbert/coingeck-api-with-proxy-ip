@@ -77,7 +77,7 @@ export class CoinGeckoClient {
       timeout: this.options.timeout, // in ms
       localAddress: this.options?.localAddresses[this.currentLocalAddress],
     };
-    console.log(this.options?.localAddresses[this.currentLocalAddress]);
+    console.log(this.options?.localAddresses[this.currentLocalAddress], "address");
     const parseJson = (input: string) => {
       try {
         return JSON.parse(input);
