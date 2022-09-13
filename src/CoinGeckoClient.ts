@@ -77,7 +77,6 @@ export class CoinGeckoClient {
       timeout: this.options.timeout, // in ms
       localAddress: this.options?.localAddresses[this.currentLocalAddress],
     };
-    console.log(this.options?.localAddresses[this.currentLocalAddress], "address");
     const parseJson = (input: string) => {
       try {
         return JSON.parse(input);
@@ -107,13 +106,12 @@ export class CoinGeckoClient {
             headers: res.headers as any,
           });
         });
-      
-          if (this.options?.localAddresses?.length - 1 > this.currentLocalAddress) {
-            this.currentLocalAddress += 1;
-          } else {
-            this.currentLocalAddress = 0;
-          }
-        
+
+        if (this.options?.localAddresses?.length - 1 > this.currentLocalAddress) {
+          this.currentLocalAddress += 1;
+        } else {
+          this.currentLocalAddress = 0;
+        }
       });
 
       req.on('error', (err) => {
