@@ -46,6 +46,16 @@ export class CoinGeckoClient {
    * @param options the options passed for client library, at the moment only timeout and localAddress are supported
    */
   constructor(options?: Options) {
+    if(options?.localAddresses && !Array.isArray(options.localAddresses)){
+      throw new Error(`Local address must be an array of ip strings. eg. ['169.326.35.69', '364.536.963.745']`)
+    }
+    if(options?.localAddresses?.forEach( (address, index) => {
+      const isValidIpAddress = /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/.test(address.toString())
+      if(!isValidIpAddress)
+      throw new Error(`Local address must be an array of ip strings, wrong element at position ${index} (address: ${address}). for example. ['169.326.35.69', '364.536.963.745']`)
+    })){
+
+    }
     this.options = { ...this.options, ...options };
   }
 
@@ -58,14 +68,28 @@ export class CoinGeckoClient {
   }
 
   /**
+   * get next ip address
+   * @returns ip address
+   * @private
+   */
+  private getNextLocalAddress(){
+    const localAddresses = this.options?.localAddresses || []
+    const addressesCount = this.options.localAddresses?.length || 0
+    if(addressesCount > 0){
+      const address =  localAddresses[this.currentLocalAddress]
+      this.currentLocalAddress < addressesCount - 1 ? this.currentLocalAddress += 1 : this.currentLocalAddress = 0
+      return address;
+    }
+
+    return;
+  }
+  /**
    * Make HTTP request to the given endpoint
    * @param url the full https URL
    * @returns json content
    */
   private async httpGet<T>(url: string) {
     const { host, pathname, search } = new URL(url);
-
-    console.log(this.options, 'asd');
 
     const options = {
       host,
@@ -75,7 +99,7 @@ export class CoinGeckoClient {
         'Content-Type': 'application/json',
       },
       timeout: this.options.timeout, // in ms
-      localAddress: this.options?.localAddresses[this.currentLocalAddress],
+      localAddress: this.getNextLocalAddress(),
     };
     const parseJson = (input: string) => {
       try {
@@ -106,12 +130,6 @@ export class CoinGeckoClient {
             headers: res.headers as any,
           });
         });
-
-        if (this.options?.localAddresses?.length - 1 > this.currentLocalAddress) {
-          this.currentLocalAddress += 1;
-        } else {
-          this.currentLocalAddress = 0;
-        }
       });
 
       req.on('error', (err) => {
@@ -184,7 +202,7 @@ valid values: true, false
     vs_currency: string,
     ids?: string,
     category?: 'decentralized_finance_defi' | 'stablecoins',
-    order?: 'market_cap_desc' | 'gecko_desc' | 'gecko_asc' | 'market_cap_asc' | 'market_cap_desc' | 'volume_asc' | 'volume_desc' | 'id_asc' | 'id_desc',
+    order?: 'market_cap_desc' | 'gecko_desc' | 'gecko_asc' | 'market_cap_asc' | 'volume_asc' | 'volume_desc' | 'id_asc' | 'id_desc',
     per_page?: number
     page?: number,
     sparkline?: boolean,
@@ -600,7 +618,7 @@ valid values: true, false
    * @param input.per_page Total results per page
    * @param input.page Data up to number of days ago (eg. 1,14,30)
    * @category Finance
-   * @returns {Finance[]}
+   * @returns {FinancePlatform[]}
    */
   public async financePlatforms(input?: {
     per_page?: number,
