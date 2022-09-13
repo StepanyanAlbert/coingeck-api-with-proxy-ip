@@ -46,16 +46,13 @@ export class CoinGeckoClient {
    * @param options the options passed for client library, at the moment only timeout and localAddress are supported
    */
   constructor(options?: Options) {
-    if(options?.localAddresses && !Array.isArray(options.localAddresses)){
-      throw new Error(`Local address must be an array of ip strings. eg. ['169.326.35.69', '364.536.963.745']`)
+    if (options?.localAddresses && !Array.isArray(options.localAddresses)) {
+      throw new Error('Local address must be an array of ip strings. eg. [\'169.326.35.69\', \'364.536.963.745\']');
     }
-    if(options?.localAddresses?.forEach( (address, index) => {
-      const isValidIpAddress = /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/.test(address.toString())
-      if(!isValidIpAddress)
-      throw new Error(`Local address must be an array of ip strings, wrong element at position ${index} (address: ${address}). for example. ['169.326.35.69', '364.536.963.745']`)
-    })){
-
-    }
+    options?.localAddresses?.forEach((address, index) => {
+      const isValidIpAddress = /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/.test(address.toString());
+      if (!isValidIpAddress) throw new Error(`Local address must be an array of ip strings, wrong element at position ${index} (address: ${address}). for example. ['169.326.35.69', '364.536.963.745']`);
+    });
     this.options = { ...this.options, ...options };
   }
 
@@ -72,17 +69,21 @@ export class CoinGeckoClient {
    * @returns ip address
    * @private
    */
-  private getNextLocalAddress(){
-    const localAddresses = this.options?.localAddresses || []
-    const addressesCount = this.options.localAddresses?.length || 0
-    if(addressesCount > 0){
-      const address =  localAddresses[this.currentLocalAddress]
-      this.currentLocalAddress < addressesCount - 1 ? this.currentLocalAddress += 1 : this.currentLocalAddress = 0
+  private getNextLocalAddress() {
+    const localAddresses = this.options?.localAddresses || [];
+    const addressesCount = this.options.localAddresses?.length || 0;
+    if (addressesCount > 0) {
+      const address = localAddresses[this.currentLocalAddress];
+      if (this.currentLocalAddress < addressesCount - 1) {
+        this.currentLocalAddress += 1;
+      } else {
+        this.currentLocalAddress = 0;
+      }
       return address;
     }
-
-    return;
+    return undefined;
   }
+
   /**
    * Make HTTP request to the given endpoint
    * @param url the full https URL
