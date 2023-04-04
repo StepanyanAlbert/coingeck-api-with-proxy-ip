@@ -1,3 +1,4 @@
+import { RequestOptions } from 'https';
 import { PLATFORMS } from './Enum';
 
 export interface PingResponse {
@@ -33,6 +34,23 @@ export interface Exchange {
   trust_score_rank: number;
   trade_volume_24h_btc: number;
   trade_volume_24h_btc_normalized: number;
+}
+
+export interface CoinItem {
+  id?: string,
+  name?: string,
+  api_symbol?: string,
+  symbol?: string,
+  market_cap_rank?: number,
+  thumb?: string,
+  large?: string
+}
+
+export interface SearchResponse {
+  coins?: CoinItem[];
+  exchanges?: Exchange[];
+  categories?: string[];
+  nfts?: string[];
 }
 
 export interface TrendingItem {
@@ -521,6 +539,7 @@ export interface Options {
   timeout?: number,
   autoRetry?: boolean,
   localAddresses?: string[]
+  extraHTTPSOptions?: RequestOptions
 }
 
 export interface HttpResponse<T> {
